@@ -1,26 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Geil Project</title>
+<html>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-      crossorigin="anonymous"
-    />
+<head>
+	<title>✨The Weather web</title>
+	<meta charset="UTF-8" />
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <link href="src/style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Welcome to the new geil Project 2021</h1>
 
-      <img src="Code1.jpg" alt="first-img" />
-    </div>
-    <script src="src/script.js"></script>
-  </body>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+		
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100;300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="src/styles.css" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<header>
+				<h1>✨The Weather</h1>
+			</header>
+		</div>
+
+		<form class="search-form" id="search-form">
+			<input type="text" placeholder="Search for a city" autocomplete="off" autofocus="on" id="city-input"
+				class="" />
+
+			<input type="submit" class="btn btn-success btn-search" value="Search" />
+		</form>
+		<div class="col-2">
+			<input class="btn btn-warning" id="current-button" type="submit" value="Current" />
+		</div>
+
+
+		<hr />
+		<div class="btn-group" role="group" aria-label="Basic example">
+			<button type="button" class="btn btn-third">Weathers maps</button>
+			<button type="button" class="btn btn-third">Live webcams</button>
+			<button type="button" class="btn btn-fourth">News</button>
+		</div>
+		<hr />
+
+		<div class="currentDate">
+			<h3 id="currentDate">Date</h3>
+		</div>
+
+		<div class="city">
+			<h2 id="search-city">Berlin</h2>
+		</div>
+
+		<div class="col-6">
+			<div class="row">
+
+				
+				<div class="current-temperature" id="temperature"><strong>22</strong>°C <a href="#" id="celcius-link"> C </a>│<a href="#" id="fahrenheit-link"> F </a></div>
+				
+			</div>
+		</div>
+	
+
+
+		<div class="row">
+
+			<div class="col">
+				<div id="humidity">
+					Humidity: 57%
+				</div>
+				<div id="wind">
+					Wind: 25km/h
+				</div>
+
+				<div class="image1">
+					<img src="src/cloudy1.png" alt="cloudy" width="200px" />
+				</div>
+				<br />
+
+
+				<form>
+					<button type="button" class="btn btn-warning">Today</button>
+					<br />
+					<br />
+					<button type="button" class="btn btn-warning">3 Days</button>
+					<br />
+					<br />
+					<button type="button" class="btn btn-warning">5 Days</button>
+					<br />
+					<br />
+					<button type="button" class="btn btn-warning">Weekend</button>
+				</form>
+
+				<br />
+				<br />
+
+
+				<div class="row" id="#container-cards">
+					<div class="col">
+						<div class="card">
+							<div class="card-body" , id="allcards">
+								<h5 class="card-day">Sat</h5>
+								<img src="src/cloudy1.png" alt="cloudy" width="55px" />
+								<p class="card-base"><strong> 22˚</strong> <br />17˚</p>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card">
+							<div class="card-body" , id="allcards">
+								<h5 class="card-day">Sun</h5>
+								<img src="src/windig.svg" alt="windig" width="30px" />
+								<p class="card-base">
+									<strong> 25˚</strong> <br />
+									15˚
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card">
+							<div class="card-body" , id="allcards">
+								<h5 class="card-day">Mon</h5>
+								<img src="src/sunny1.jpg" alt="sunny" width="30px" />
+								<p class="card-base">
+									<strong> 28˚</strong> <br />
+									19˚
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card">
+							<div class="card-body" , id="allcards">
+								<h5 class="card-day">Tue</h5>
+								<img src="src/sunny1.jpg" alt="sunny" width="30px" />
+								<p class="card-base">
+									<strong> 30˚ </strong><br />
+									15˚
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card">
+							<div class="card-body" , id="allcards">
+								<h5 class="card-day">Wed</h5>
+								<img src="src/rain1.png" alt="rain" width="30px" />
+								<p class="card-base">
+									<strong> 23˚</strong> <br />
+									14˚
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			</container>
+			<div class="footer">
+				<footer> Take a look ➡ https://github.com/sara01rizo The weather by <emp>Sara Rizo </emp>
+		<a href="https://github.com/sara01rizo"></a>
+					
+				</footer>
+
+			</div>
+			<script src="src/index.js">
+			</script>
+</body>
+
 </html>
